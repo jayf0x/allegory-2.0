@@ -3,22 +3,20 @@ import { Lighting } from './Lighting';
 import { Monolith } from './Monolith';
 import { CameraUserControls } from './components/CameraUserControls';
 
-// ProjectedSurface — kept for future use, not active
-// import { ProjectedSurface } from './ProjectedSurface';
-
 export const Scene = () => {
   return (
     <>
-      <color attach="background" args={['#ffffff']} />
+      {/* Dark void — the monolith's screen is the light source */}
+      <color attach="background" args={['#030305']} />
 
       <CameraUserControls />
       <Lighting />
       <Monolith />
 
-      {/* White void floor */}
+      {/* Floor catches the light pool spilling from the screen */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[50, 50]} />
-        <meshStandardMaterial color="#f0f0f0" roughness={0.8} metalness={0} />
+        <meshStandardMaterial color="#0b0b0e" roughness={0.35} metalness={0} />
       </mesh>
 
       <Preload all />
